@@ -16,20 +16,20 @@ class FunctionalTest (TestCase):
         self.browser.get('http://localhost:8000')
         link = self.browser.find_element_by_id('id_login')
         link.click()
-        wait = WebDriverWait(self.browser, 10)
 
-        user = wait.until(EC.visibility_of_element_located((By.NAME, "username")))
-        user.clear()
+        modal = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.ID, "login_modal")))
+
+        user = modal.find_element(By.NAME, "username")
         user.send_keys('admin')
 
-        pswd = wait.until(EC.visibility_of_element_located((By.NAME, "password")))
-        pswd.clear()
+        pswd = modal.find_element(By.NAME, "password")
         pswd.send_keys('admin1234')
 
         botonLogin = self.browser.find_element_by_id('id_button_login')
         botonLogin.click()
         self.browser.implicitly_wait(5)
-        h3 = self.browser.find_element(By.XPATH, '//h3[text()="Administrar"]')
-        self.assertIn('Administrar', h3.text)
+        a = self.browser.find_element_by_id('id_editar')
+        self.assertNotEqual(a, None)
 
 
