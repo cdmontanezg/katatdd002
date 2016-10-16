@@ -59,7 +59,7 @@ class FunctionalTest (TestCase):
 
         link = self.browser.find_element_by_id('id_trabajador_Juan')
         link.click()
-        self.browser.implicitly_wait(1000)
+        self.browser.implicitly_wait(500)
 
         correo = self.browser.find_element(By.ID, "correo")
         correo.clear()
