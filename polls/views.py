@@ -86,6 +86,7 @@ def editar_perfil(request,idTrabajador):
         form_trabajador = TrabajadorForm(instance=trabajador)
 
     context = {'form_trabajador': form_trabajador}
+    #return HttpResponseRedirect('/')
     return render(request, 'polls/editar.html', context)
 
 @csrf_exempt

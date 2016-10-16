@@ -39,19 +39,18 @@ class FunctionalTest (TestCase):
         link.click()
         self.browser.implicitly_wait(4000)
 
-        modal = WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located((By.ID, "register_modal")))
-
-        name = modal.find_element(By.NAME, "nombre")
+        name = self.browser.find_element(By.NAME, "nombre")
+        name.clear()
         name.send_keys('Juan')
 
-        lastName = modal.find_element(By.NAME, "apellidos")
+        lastName = self.browser.find_element(By.NAME, "apellidos")
+        lastName.clear()
         lastName.send_keys('Pérez Páez')
 
         botonSubmit = self.browser.find_element_by_id('id_grabar')
         botonSubmit.click()
 
         self.browser.implicitly_wait(1000)
-        div = self.browser.find_element_by_id('id_welcome')
-        self.assertIn("Bienvenido Juan", div.text)
+        a = self.browser.find_element_by_id('id_welcome')
+        self.assertIn("Bienvenido Juan", a.text)
 

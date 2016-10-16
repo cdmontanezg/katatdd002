@@ -30,6 +30,10 @@
 <ul class="nav navbar-nav navbar-right" style="padding-right: 20px">
     {% if user.is_authenticated %}
 
+            <li><a id="id_welcome">
+                Bienvenido {{user.trabajador.nombre }}
+            </a></li>
+
             <li><a href="{% url 'principal:editar' idTrabajador=user.id %}" id="id_editar"><span class="glyphicon glyphicon-user"></span> Editar</a></li>
     <li>
             <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
@@ -107,6 +111,9 @@
         });
         $('#id_register').click(function () {
             $('#register_modal').modal();
+        });
+        $('#id_editar').click(function () {
+            $('#edit_modal').modal();
         });
 
         $('.trabajador').click(function () {
