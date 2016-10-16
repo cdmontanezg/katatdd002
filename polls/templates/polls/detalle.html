@@ -70,11 +70,11 @@
 </div>
 <div class="row">
     <div style="box-shadow: 2px 2px 5px gray; border-radius: 5px" class="col-md-6 col-md-offset-3">
-        <form onsubmit="agregarComentario()">
+        <form id="form_comentarios" onsubmit="agregarComentario()">
          <input id="correo" style="margin: 5px;" type="email" required placeholder="Correo">
-         <textarea placeholder="Agreagar comentario" id="comentario" style="margin: 5px;" rows="3" cols="90" required></textarea>
+         <textarea placeholder="Agregar comentario" id="comentario" style="margin: 5px;" rows="3" cols="90" required></textarea>
 
-        <button type="submit" style="margin: 5px;" class="btn btn-default btn-success" title="Adicionar comentario">Comentar <span class="glyphicon glyphicon-plus"></span>
+        <button id="id_comentar" type="submit" style="margin: 5px;" class="btn btn-default btn-success" title="Adicionar comentario">Comentar <span class="glyphicon glyphicon-plus"></span>
         </button>
         </form>
 

@@ -59,7 +59,7 @@ class FunctionalTest (TestCase):
 
         link = self.browser.find_element_by_id('id_trabajador_Juan')
         link.click()
-        self.browser.implicitly_wait(500)
+        self.browser.implicitly_wait(2000)
 
         correo = self.browser.find_element(By.ID, "correo")
         correo.clear()
@@ -72,7 +72,7 @@ class FunctionalTest (TestCase):
         botonSubmit = self.browser.find_element_by_id('id_comentar')
         botonSubmit.click()
 
-        self.browser.implicitly_wait(1000)
+        self.browser.implicitly_wait(2000)
         p = self.browser.find_element(By.XPATH, '//p[text()="comentario test"]')
         self.assertIn("comentario test", p.text)
 
